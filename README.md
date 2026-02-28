@@ -1,59 +1,132 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# e-SPPD
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Sistem Informasi Surat Perintah Perjalanan Dinas (SPPD) berbasis web untuk mengelola seluruh proses perjalanan dinas secara digital — mulai dari perencanaan, penerbitan dokumen, pengajuan dana, hingga pertanggungjawaban.
 
-## About Laravel
+## Tech Stack
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+| Layer     | Teknologi                          |
+|-----------|------------------------------------|
+| Backend   | Laravel 12, PHP 8.2+               |
+| Frontend  | Vue 3, Inertia.js, Tailwind CSS 4  |
+| Build     | Vite 7                             |
+| Database  | MySQL / MariaDB                    |
+| Auth      | Session-based (Laravel Sanctum)    |
+| ID        | ULID (Universally Unique Lexicographically Sortable Identifier) |
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Modul Aplikasi
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### 1. Dashboard
+- Ringkasan statistik perjalanan dinas
+- Monitoring penggunaan anggaran
 
-## Learning Laravel
+### 2. Master Data
+- **Pegawai** — Data pegawai lengkap (NIP, nama, jabatan, golongan, unit kerja)
+- **Unit Kerja** — Struktur organisasi / bagian
+- **Jabatan** — Daftar jabatan struktural & fungsional
+- **Golongan** — Golongan / pangkat PNS
+- **Kota Tujuan** — Daftar kota tujuan perjalanan dinas
+- **Standar Biaya** — Tarif uang harian, penginapan, dan transport per golongan & kota
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+### 3. Perencanaan
+- **Program Kegiatan** — Rencana program & kegiatan tahunan beserta alokasi anggaran
+- **Rencana Perjalanan** — Perencanaan perjalanan dinas (pegawai, tujuan, jadwal, keperluan)
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### 4. Dokumen
+- **Surat Tugas** — Pembuatan & pencetakan surat tugas perjalanan dinas
+- **SPPD** — Pembuatan & pencetakan Surat Perintah Perjalanan Dinas
+- **Perhitungan Biaya** — Kalkulasi otomatis biaya perjalanan berdasarkan standar biaya
+- **Bukti Perjalanan** — Upload & kelola bukti-bukti perjalanan (tiket, boarding pass, dll)
 
-## Laravel Sponsors
+### 5. Keuangan
+- **Pengajuan Dana** — Pengajuan uang muka perjalanan dinas dengan alur persetujuan
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### 6. Realisasi
+- **Laporan Perjalanan** — Laporan hasil perjalanan dinas oleh pegawai
+- **SPJ** — Surat Pertanggungjawaban keuangan perjalanan dinas beserta cetak dokumen
 
-### Premium Partners
+### 7. Approval
+- **Persetujuan** — Alur persetujuan dokumen (surat tugas, SPPD, pengajuan dana) oleh pejabat berwenang
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+### 8. Laporan
+- **Perjalanan Pegawai** — Rekap perjalanan dinas per pegawai
+- **Penggunaan Anggaran** — Laporan realisasi anggaran perjalanan dinas
+- **Rekap Tahunan** — Rekapitulasi perjalanan dinas per tahun
 
-## Contributing
+### 9. Sistem
+- **Manajemen User** — Kelola akun pengguna (aktif/nonaktif)
+- **Role & Hak Akses** — Pengaturan role dan permission berbasis modul
+- **Audit Log** — Riwayat aktivitas pengguna untuk keamanan & audit
+- **Backup Database** — Backup data secara manual
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### 10. Pengaturan
+- **Data Instansi** — Konfigurasi informasi instansi (nama, alamat, logo, kepala instansi)
 
-## Code of Conduct
+### 11. Bantuan
+- **Dokumentasi** — Panduan penggunaan aplikasi
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## Fitur Utama
 
-## Security Vulnerabilities
+- **Role-Based Access Control** — Sistem hak akses granular per modul dan aksi (view, create, edit, delete)
+- **Super Admin Bypass** — Role `super_admin` otomatis memiliki semua hak akses
+- **Penomoran Dokumen Otomatis** — Nomor surat tugas, SPPD, dan SPJ digenerate otomatis
+- **Perhitungan Biaya Otomatis** — Kalkulasi biaya berdasarkan standar biaya, golongan, dan kota tujuan
+- **Cetak Dokumen** — Cetak surat tugas, SPPD, dan SPJ dalam format siap print
+- **Audit Trail** — Pencatatan setiap perubahan data untuk keperluan audit
+- **Responsive UI** — Tampilan responsif dengan sidebar collapsible
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## Arsitektur
 
-## License
+```
+app/
+├── Http/Controllers/     # Controller per modul
+├── Http/Middleware/       # CheckPermission, HandleInertiaRequests
+├── Models/               # Eloquent model dengan ULID
+├── Repositories/         # Repository Pattern (Interface + Eloquent)
+├── Services/             # Business logic (NomorDokumen, PerhitunganBiaya)
+└── Traits/               # HasUlid trait
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+resources/js/
+├── Pages/                # Vue pages per modul (Inertia)
+├── Layouts/              # AppLayout, PrintLayout
+├── Components/           # Reusable UI components (AppTable, AppCard, dll)
+└── composables/          # usePermission, useTable
+```
+
+## Instalasi
+
+```bash
+# Clone repository
+git clone https://github.com/candradigitalindo/e-sppd.git
+cd e-sppd
+
+# Install dependencies
+composer install
+npm install
+
+# Konfigurasi environment
+cp .env.example .env
+php artisan key:generate
+
+# Setup database
+php artisan migrate --seed
+
+# Build assets
+npm run build
+
+# Jalankan server
+php artisan serve
+```
+
+## Development
+
+```bash
+# Jalankan dev server dengan hot reload
+npm run dev
+
+# Di terminal terpisah
+php artisan serve
+```
+
+## Lisensi
+
+Aplikasi ini bersifat proprietary dan dikembangkan oleh **Candra Digital Indo**.
